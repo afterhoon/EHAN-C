@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+float SumArr(float *arr, int len) {
+	float sum = 0;
+	for (int i = 0; i < len; i++)
+		sum += arr[i];
+	return sum;
+}
+
+float AvgArr(float *arr, int len) {
+	return SumArr(arr, len) / 10;
+}
+
+int main() {
+	float arr[10];
+	for (int i = 0; i < 10; i++) {
+		printf("%d>> ", i + 1);
+		scanf_s("%f", &arr[i]);
+	}
+	printf("합계>> %f \n", SumArr(arr, 10));
+	printf("평균>> %f \n", AvgArr(arr, 10));
+	return 0;
+}
