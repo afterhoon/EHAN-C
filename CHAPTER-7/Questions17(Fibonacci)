@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int Fibonacci(int n) {
+	if (n == 0) return 0;
+	else if (n == 1) return 1;
+	return Fibonacci(n - 1) + Fibonacci(n - 2);
+}
+
+int main() {
+	int arr[100];
+	for (int i = 0; i < 100; i++) {
+		arr[i] = Fibonacci(i);
+		printf("o ");
+		if (i % 10 == 9) printf("\n");
+	}
+		
+		
+	for (int i = 0; i < 100; i++) {
+		for (int j = 0; j < 10; j++)
+			printf("%3d ", arr[10 * i + j]);
+		printf("\n");
+	}
+	printf("\n");
+	return 0;
+}
