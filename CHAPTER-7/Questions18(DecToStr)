@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int Capital(char *str, int n) {
+	int diff = 'a' - 'A';
+	for (int i = 0; i < n; i++) {
+		if (i == 0) {
+			if ('a' < str[i] && str[i] <= 'z')
+				str[i] -= diff;
+		}
+		else if (('a' < str[i] && str[i] <= 'z') && str[i-1] == ' ')
+			str[i] -= diff;
+	}
+}
+
+int main() {
+	char str[30];
+	printf("문자열 입력>> ");
+	fgets(str, 30, stdin);
+	printf("%s", str, 30);
+	Capital(str, 30);
+	printf("%s", str, 30);
+	return 0;
+}
