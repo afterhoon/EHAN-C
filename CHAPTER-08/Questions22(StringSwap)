@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+
+void swap(char *ptr1, char *ptr2) {
+	char temp = *ptr1;
+	*ptr1 = *ptr2;
+	*ptr2 = temp;
+}
+
+int main() {
+	char str[30];
+	char *ptr;
+	int len = 0;
+
+	printf("문자열 입력>> ");
+	fgets(str, 30, stdin);
+	len = strlen(str) - 1;
+	str[len] = '\0';
+	ptr = str;
+
+	printf("입력된 문자열>> %s \n", str);
+	for (int i = 0; i < (len)/2; i++) {
+		swap((ptr + i), (ptr + len - i - 1));
+	}
+	printf("역순의 문자열>> %s \n", str);
+	return 0;
+}
