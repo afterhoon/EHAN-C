@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <math.h>
+
+struct point {
+	int x, y;
+};
+typedef struct point POINT;
+
+struct line {
+	POINT DeparturePoint;
+	POINT DestinationPoint;
+};
+typedef struct line LINE;
+
+int main() {
+	LINE ln;
+	int len = 0;
+	int len_square = 0;
+	printf("선의 시작점과 끝점 입력 \n");
+	printf("시작점 (x1,y1)>> ");
+	scanf_s("%d %d", &ln.DeparturePoint.x, &ln.DeparturePoint.y);
+	printf("끝  점 (x2,y2)>> ");
+	scanf_s("%d %d", &ln.DestinationPoint.x, &ln.DestinationPoint.y);
+
+	len_square = (ln.DestinationPoint.x - ln.DeparturePoint.x) * (ln.DestinationPoint.x - ln.DeparturePoint.x)
+		+ (ln.DestinationPoint.y - ln.DeparturePoint.y) * (ln.DestinationPoint.y - ln.DeparturePoint.y);
+
+	len = sqrt(len_square);
+
+	printf("선의 길이>> %d \n", len);
+	return 0;
+}
