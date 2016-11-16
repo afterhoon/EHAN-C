@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main() {
+	int arr[10] = { 1,2,3,4,5,16,7,8,9,10 };
+	int *ptr = 0;
+	int i = 0;
+
+	for (i = 0; i < 10; i++) {
+		if (ptr < arr[i]) ptr = arr[i];
+	}
+	printf("가장 큰 값>> %d \n", ptr);
+	return 0;
+}
