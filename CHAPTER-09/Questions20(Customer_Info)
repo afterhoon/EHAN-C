@@ -1,0 +1,42 @@
+#include <stdio.h>
+enum sex{ MAN = 1, WOMAN = 2 };
+
+typedef struct {
+	char name[20];
+	int age;
+	int sex;
+	char address[40];
+	char phoneNum[20];
+} CUSTOMER_INFO;
+
+void PrintInfo(CUSTOMER_INFO ci) {
+	printf("\n************************************\n");
+	printf("[ %s님의 고객정보 ] \n", ci.name);
+	printf("나    이: %d \n", ci.age);
+	if (ci.sex == 1) printf("성    별: 남\n");
+	else printf("성별: 여\n");
+	printf("주    소: %s", ci.address);
+	printf("전화번호: %s", ci.phoneNum);
+	printf("************************************\n");
+}
+
+int main() {
+	CUSTOMER_INFO ci;
+
+	puts("고객 정보 입력");
+	printf("이름>> ");
+	fgets(ci.name, 20, stdin);
+	ci.name[strlen(ci.name) - 1] = '\0';
+	printf("나이>> ");
+	scanf_s("%d", &ci.age);
+	printf("성별>> ");
+	scanf_s("%d", &ci.sex);
+	getchar();
+	printf("주소>> ");
+	fgets(ci.address, 40, stdin);
+	printf("전화번호>> ");
+	fgets(ci.phoneNum, 20, stdin);
+
+	PrintInfo(ci);
+	return 0;
+}
