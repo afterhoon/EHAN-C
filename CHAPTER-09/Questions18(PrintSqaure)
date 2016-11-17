@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+typedef struct point {
+	int x;
+	int y;
+} POINT;
+
+typedef struct square {
+	POINT p;
+	int width;
+	int height;
+} SQUARE;
+
+void PrintSquare(SQUARE s) {
+	char c[50][50];
+	int minX = s.p.x;
+	int minY = s.p.y;
+	int maxX = s.p.x + s.width;
+	int maxY = s.p.x + s.height;
+
+	for (int i = 0; i < 50; i++) {
+		for (int j = 0; j < 50; j++) {
+			if ((minX <= j && j <= maxX) && (minY <= i && i <= maxY))
+				printf("  x");
+			else printf("  +");
+		}
+		printf("\n");
+	}
+	
+}
+
+int main() {
+	SQUARE s;
+	puts("직사각형에 대한 정보를 입력하시오");
+	printf("좌표입력 (x,y) >> ");
+	scanf_s("%d %d", &s.p.x, &s.p.y);
+	printf("폭(가로길이) 입력>> ");
+	scanf_s("%d", &s.width);
+	printf("높이(세로길이) 입력>> ");
+	scanf_s("%d", &s.height);
+
+	PrintSquare(s);
+	return 0;
+}
