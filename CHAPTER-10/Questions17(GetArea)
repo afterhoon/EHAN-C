@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+typedef struct rect {
+	int x1, y1;
+	int x2, y2;
+} RECT;
+
+int GetArea(RECT r) {
+	int width = r.x2 - r.x1;
+	int height = r.y2 - r.y1;
+	int area = width * height;
+	if (area < 0) area = -area;
+	return area;
+}
+
+int main() {
+	RECT r;
+	printf("두 점의 좌표 입력 \n");
+	printf("(x1, y1)>> ");
+	scanf_s("%d %d", &r.x1, &r.y1);
+	printf("(x2, y2)>> ");
+	scanf_s("%d %d", &r.x2, &r.y2);
+
+	printf("넓이>> %d \n", GetArea(r));
+	return 0;
+}
