@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+void MakeLower(char str[]) {
+	int diff = 'a' - 'A';
+	for (int i = 0; i < strlen(str); i++) {
+		if ('A' <= str[i] && str[i] <= 'Z')
+			str[i] += diff;
+	}
+}
+
+void MakeUpper(char str[]) {
+	int diff = 'a' - 'A';
+	for (int i = 0; i < strlen(str); i++) {
+		if ('a' <= str[i] && str[i] <= 'z')
+			str[i] -= diff;
+	}
+}
+
+int main() {
+	char str[30];
+	int len;
+	printf("문자열 입력>> ");
+	fgets(str, 30, stdin);
+	len = strlen(str);
+	str[len - 1] = '\0';
+
+	MakeLower(str);
+	printf("%s \n", str);
+	MakeUpper(str);
+	printf("%s \n", str);
+	return 0;
+}
